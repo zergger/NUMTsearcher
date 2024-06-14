@@ -46,7 +46,7 @@ Assume `chr.fa` is your nuclear genome and `chrM.fa` is your mitochondrial genom
 
     ```bash
     sed -i '1s/^/##maf version=1 scoring=lastz.v1.04.15\n/' output_fold/plastz.out
-    mafToPsl chrM chr output_fold/plastz.out/plastz.out numt.tsv
+    mafToPsl chrM chr output_fold/plastz.out numt.tsv
     ```
 
 6. **Extract Numt sequences:**
