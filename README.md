@@ -1,5 +1,5 @@
 NUMTsearcher
-=================
+\=================
 
 ### Introduction
 
@@ -13,6 +13,24 @@ NUMTsearcher requires the following third-party software. Please ensure they are
 - **[LastZ](https://github.com/lastz/lastz)**
 - **[PLastZ](https://github.com/AntoineHo/PLastZ)**
 - **[mafToPsl](https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/mafToPsl)**
+
+### Important Note on Input Formatting (Masked Sequences)
+
+`NUMTsearcher` uses `LASTZ` as its alignment engine. By default, `LASTZ` treats lowercase letters (often used for soft-masking repetitive regions in a FASTA file) differently from uppercase letters during the alignment process. This can influence the calculation of the optimized K value and, consequently, the final NUMT detection results.
+
+To ensure consistency and reproducibility, especially if your goal is to identify NUMTs based purely on sequence identity, **we strongly recommend converting your nuclear genome sequence to all uppercase before running `NUMTsearcher`**.
+
+This sequence preparation is an upstream step and not a feature built into `NUMTsearcher` itself. It can be easily accomplished using standard bioinformatics tools like `seqkit`.
+
+**Example using `seqkit`:**
+
+If you have `seqkit` installed, you can convert your genome file (e.g., `genome.fasta`) to an all-uppercase version (e.g., `genome.upper.fasta`) with the following simple command:
+
+```bash
+seqkit seq -u genome.fasta > genome.upper.fasta
+```
+
+Please use this uppercase file (`genome.upper.fasta`) as the input for `NUMTsearcher` to ensure consistent analysis.
 
 ### Usage Example
 
