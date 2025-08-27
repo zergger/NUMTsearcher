@@ -1,5 +1,5 @@
 NUMTsearcher
-\=================
+=================
 
 ### Introduction
 
